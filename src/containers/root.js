@@ -1,11 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
+
+import NavBarComponent from '../components/nav-bar';
+import ProductOffers from '../components/product-offers';
 
 export default class AppRoot extends React.Component {
   render() {
     return (      
         <View>
-        	<Text>Hello world</Text>
+        	<NavBarComponent></NavBarComponent>
+        	<ProductOffers></ProductOffers>
         </View>
     );
   }
