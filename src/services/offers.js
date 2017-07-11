@@ -4,13 +4,15 @@ const OfferService = (offers) => {
 
 OfferService.prototype.getSummary = () => {
 	let summary = {
+		image: "",
 		productName: "",
 		averagePrice: null
 	}
 
 	if (this.offers.length > 0) {
-		const languages = this.offers[0].product.languages;
-	  summary.productName = languages.title || languages[0].title || "";
+		const product = this.offers[0].product;
+		summary.image = product.details.image || "";
+	  summary.productName = product.languages.title || product.languages[0].title || "";
 	  summary.averagePrice = averagePrice(this.offers);
 	}
 	

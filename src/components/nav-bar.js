@@ -16,16 +16,16 @@ export default class NavBarComponent extends React.Component {
 
 const styles = StyleSheet.create({
   statusBar: {
-    backgroundColor: '#64FFDA'
+    backgroundColor: '#4487db'
   },
   navBar: {
-    backgroundColor: '#64FFDA',
+    backgroundColor: '#4487db',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
-  	color: '#000',
+  	color: '#fff',
   	textAlign: 'center',
   	margin: 'auto'
   }

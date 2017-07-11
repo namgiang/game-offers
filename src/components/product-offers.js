@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { connect } from "react-redux";
 import { fetchData } from "../actions";
 
@@ -17,10 +17,10 @@ class ProductOffers extends React.Component {
   	const offerService = new OfferService(this.props.offers);
   	const summary = offerService.getSummary();
     return (      
-        <View>
+        <ScrollView>
         	<OfferSummary summary={summary} ></OfferSummary>
         	<OfferList offers={this.props.offers}></OfferList>
-        </View>
+        </ScrollView>
     );
   }
 }
