@@ -1,5 +1,7 @@
 export const REQUEST_DATA = "REQUEST_DATA";
 export const RECEIVE_DATA = "RECEIVE_DATA";
+export const SET_PRICE_RANGE = "SET_PRICE_RANGE";
+export const SORT_ORDER = "SORT_ORDER";
 let jsonData = require('../assets/data/offers.json');
 
 export const requestData = (): Object => {
@@ -32,6 +34,20 @@ export const fetchData = (): Function => {
 
     return setTimeout(() => {
       dispatch(receiveData(jsonData));
-    }, 200);
+    }, 100);
+  };
+};
+
+export const setPriceRange = (values): Object => {
+  return {
+    type: SET_PRICE_RANGE,
+    values
+  };
+};
+
+export const sortOffers = (sortOrder): Object => {
+  return {
+    type: SORT_ORDER,
+    sortOrder
   };
 };

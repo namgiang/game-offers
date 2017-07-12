@@ -12,8 +12,7 @@ class OfferSummary extends React.Component {
       	  <Text>Average Price: </Text>
       	  <Text style={styles.price}>€{summary.averagePrice}</Text>
       	</Text>      
-      </View>
-         
+      </View>         
     );
   }
 }

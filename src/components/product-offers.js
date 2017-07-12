@@ -16,10 +16,18 @@ class ProductOffers extends React.Component {
   render() {
   	const offerService = new OfferService(this.props.offers);
   	const summary = offerService.getSummary();
+  	let offers = this.props.offers;
+  	if (this.props.range) {
+  	  offers = offerService.filterByPriceRange(this.props.range);
+  	}
+  	if (this.props.sortOrder) {
+  		offers = offerService.sortByPrice(this.props.sortOrder, offers);
+  	}
+  	
     return (      
         <ScrollView>
         	<OfferSummary summary={summary} ></OfferSummary>
-        	<OfferList offers={this.props.offers}></OfferList>
+        	<OfferList offerService={offerService} offers={offers}></OfferList>
         </ScrollView>
     );
   }
@@ -27,5 +35,7 @@ class ProductOffers extends React.Component {
 
 export default connect((state) => ({
   isFetching: state.data.isFetching,
-  offers: state.data.offers || []
+  offers: state.data.offers || [],
+  range: state.data.priceRange,
+  sortOrder: state.data.sortOrder
 }))(ProductOffers);

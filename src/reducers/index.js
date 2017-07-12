@@ -3,7 +3,9 @@ import * as types from "../actions";
 
 const data = (state = {
   isFetching: false,
-  offers: []
+  offers: [],
+  priceRange: null,
+  sortOrder: null
 }, action) => {
   switch (action.type) {
     case types.REQUEST_DATA:
@@ -14,6 +16,14 @@ const data = (state = {
       return Object.assign({}, state, {
         isFetching: false,
         offers: action.data
+      });
+    case types.SET_PRICE_RANGE:
+      return Object.assign({}, state, {
+        priceRange: action.values
+      });
+    case types.SORT_ORDER:
+      return Object.assign({}, state, {
+        sortOrder: action.sortOrder
       });
     default:
       return state;
