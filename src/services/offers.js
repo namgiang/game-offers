@@ -37,6 +37,7 @@ OfferService.prototype.filterByPriceRange = (range) => {
 }
 
 OfferService.prototype.sortByPrice = (order, offers) => {
+	if (order === "noOrder") return offers;
 	return offers.sort((a, b) => {
 		if (!a || !b) return offers;
 		return sort(a.price, b.price, order);

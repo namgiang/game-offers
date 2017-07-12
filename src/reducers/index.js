@@ -5,7 +5,7 @@ const data = (state = {
   isFetching: false,
   offers: [],
   priceRange: null,
-  sortOrder: null
+  sortOrder: 'noOrder'
 }, action) => {
   switch (action.type) {
     case types.REQUEST_DATA:

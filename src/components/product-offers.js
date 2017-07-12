@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, View, Text } from 'react-native';
 import { connect } from "react-redux";
 import { fetchData } from "../actions";
 
@@ -24,12 +24,15 @@ class ProductOffers extends React.Component {
   		offers = offerService.sortByPrice(this.props.sortOrder, offers);
   	}
   	
-    return (      
-        <ScrollView>
+    return offers.length > 0 ? (      
+        <ScrollView 
+          contentInset={{bottom: 0}}
+ 					automaticallyAdjustContentInsets={true}
+				  >
         	<OfferSummary summary={summary} ></OfferSummary>
         	<OfferList offerService={offerService} offers={offers}></OfferList>
         </ScrollView>
-    );
+        ) : <View><Text>Loading...</Text></View>;
   }
 }
 

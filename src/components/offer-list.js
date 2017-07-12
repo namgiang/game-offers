@@ -21,7 +21,8 @@ export default class OfferList extends React.PureComponent  {
 	      <FlatList
 				  data={offers}
 				  keyExtractor={(item, index) => item.id}
-				  style={{marginTop: 5}}
+				  style={{paddingBottom:100}}
+          automaticallyAdjustContentInsets={false}
 				  renderItem={({item}) => (<OfferItem key={item.id} 
 				  																		offer={item}>
 				  												 </OfferItem>)}
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
 		// flex: 0.7
 	},
 	sort: {
-		// flex: 0.3,
-		marginLeft: 5
+		flex: 0.6,
+		margin: 'auto'
 	}
 })
